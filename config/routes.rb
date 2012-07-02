@@ -1,4 +1,6 @@
 Blog::Application.routes.draw do
+  resources :messages
+
   resources :artifacts
 
   # The priority is based upon order of creation:
