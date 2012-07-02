@@ -1,0 +1,24 @@
+rails3.2にてcucumber-rails(web_steps_ja付)+RSpec+Capybaraの構成を作ってお決まりのblog CRUDを作るところまでのソースです。
+
+rails new blog 
+cd blog
+vi Gemfile
+rails g rspec:install
+rails g cucumber:install ja --rspec --capybara
+rails g scaffold artifact title:string content:text
+rake db:migrate
+rake
+
+ここまででrspecとcucumberテストが始まります。
+
+Gemfileには、
+
+group :development, :test do
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'cucumber-rails', '= 1.0.6'
+  gem 'cucumber'
+  gem 'rspec-rails'
+end
+
+を追加してください。cucumber-railsは1.0.6より新しいver.を使うとweb_steps_ja.rbが生成されません(自分でちゃんと作ってねってことらしい)
