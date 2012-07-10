@@ -16,9 +16,14 @@ Gemfileには、
 group :development, :test do
   gem 'capybara'
   gem 'database_cleaner'
-  gem 'cucumber-rails', '= 1.0.6'
   gem 'cucumber'
+  gem 'cucumber-rails', '= 1.0.6', :require => false
   gem 'rspec-rails'
+  gem 'execjs'
+  gem 'therubyracer'
 end
 
 を追加してください。cucumber-railsは1.0.6より新しいver.を使うとweb_steps_ja.rbが生成されません(自分でちゃんと作ってねってことらしい)
+
+bundle install等で、nokogiriのインストールに失敗した場合は下記インストールを行ってください。
+yum install libxml2-devel libxslt-devel
